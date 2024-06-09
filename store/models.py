@@ -42,6 +42,8 @@ class Customer(models.Model):
     birth_date = models.DateField(null=True, blank=True)
     membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
    
+    
+
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = "P"
     PAYMENT_STATUS_COMPLETE = "C"
@@ -61,7 +63,7 @@ class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-
+    zip_code = models.CharField(max_length=255)
 
 
 class OrderItem(models.Model):
